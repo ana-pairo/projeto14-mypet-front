@@ -1,27 +1,22 @@
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { useState } from "react";
 import styled from "styled-components";
 
+import { openClientSession } from "../../services/MyPet_API";
 import FormsStyle from "../../common/FormsStyle/FormsStyle";
 import Logo from "../../common/Logo/Logo";
 import FormsButton from "../../common/Buttons/FormsButton";
 import StyledLink from "../../common/Links/StyledLink";
 
 export default function Login() {
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isShown, setIsShown] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
   const [inputData, setInputData] = useState({
     email: "",
     password: "",
   });
-
-  // function showPassword() {
-  //   {
-  //     isShown ? setIsShown(false) : setIsShown(true);
-  //   }
-  // }
 
   function handleForm(e) {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
@@ -33,13 +28,14 @@ export default function Login() {
 
     try {
       console.log("ok");
-      //   const response = await openClientSession(inputData);
+      const response = await openClientSession(inputData);
 
-      //   localStorage.setItem("UserToken", JSON.stringify(response.data));
-      //   navigate("/home");
+      localStorage.setItem("UserToken", JSON.stringify(response.data));
+      navigate("/home");
     } catch (error) {
       setIsDisable(false);
-      alert(error.response.data);
+      console.log(error.message);
+      alert(error.message);
     }
   }
 

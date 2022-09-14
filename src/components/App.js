@@ -12,6 +12,7 @@ export default function App() {
           <Route path="/" element={<div>HELLO WORD</div>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<div>cadastro</div>} />
+          <Route path="/home" element={<div>home</div>} />
         </Routes>
       </BrowserRouter>
     </>
