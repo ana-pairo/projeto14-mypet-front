@@ -8,4 +8,10 @@ function openClientSession(body) {
   return promise;
 }
 
-export { openClientSession };
+function createClient(body) {
+  const promise = axios.post(`${BASE_URL}/clients`, body);
+
+  return promise;
+}
+
+export { openClientSession, createClient };
