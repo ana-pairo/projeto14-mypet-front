@@ -85,7 +85,7 @@ export default function Login() {
             Entrar
           </FormsButton>
         </FormsStyle>
-        <Shadow></Shadow>
+        <Shadow />
         <StyledLink to="/cadastro">Primeira vez? Cadastre-se!</StyledLink>
       </Wrapper>
     </>
@@ -99,6 +99,7 @@ const Wrapper = styled.div`
   align-items: center;
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 `;
 
 const EyeIcon = styled.div`
@@ -108,8 +109,8 @@ const EyeIcon = styled.div`
 `;
 
 const Shadow = styled.div`
-  width: 75%;
-  height: 45px;
-  margin-top: 1px;
-  box-shadow: 1px 20px 25px -20px #333;
+  width: 80%;
+  min-height: 60px;
+  margin-top: 10px;
+  box-shadow: 0 20px 25px -20px #333;
 `;
