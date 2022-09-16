@@ -9,7 +9,7 @@ function openClientSession(body) {
 }
 
 function createClient(body) {
-  const promise = axios.post(`${BASE_URL}/clients`, body);
+  const promise = axios.post(`${BASE_URL}/signUp`, body);
 
   return promise;
 }
