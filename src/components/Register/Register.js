@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
-import { VscClose, VscCheck } from "react-icons/vsc";
+import { VscClose } from "react-icons/vsc";
 
 import { isPasswordValid, isPasswordMatching } from "./PasswordValidation";
 import { createClient } from "../../services/MyPet_API";
