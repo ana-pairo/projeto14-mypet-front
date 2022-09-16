@@ -27,7 +27,6 @@ export default function Login() {
     setIsDisable(true);
 
     try {
-      console.log("ok");
       const response = await openClientSession(inputData);
 
       localStorage.setItem("UserToken", JSON.stringify(response.data));
