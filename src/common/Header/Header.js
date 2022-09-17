@@ -1,11 +1,19 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { BsArrowLeftCircle, BsSearch } from "react-icons/bs";
 
 export default function Header({ children, showSearchBox, setShowSearchBox }) {
+  const navigate = useNavigate();
   return (
     <Wrapper showSearchBox={showSearchBox}>
       <Top>
-        <BsArrowLeftCircle size="30px" color="#F1C40F" />
+        <BsArrowLeftCircle
+          size="30px"
+          color="#F1C40F"
+          onClick={() => {
+            navigate("/home");
+          }}
+        />
         {children}
         <BsSearch
           size="30px"
@@ -23,8 +31,8 @@ export default function Header({ children, showSearchBox, setShowSearchBox }) {
 }
 
 const Wrapper = styled.div`
-  padding: 20px 10px 20px 10px;
-  height: ${(props) => (props.showSearchBox ? "110px" : "60px")};
+  padding: 10px 10px 20px 10px;
+  height: ${(props) => (props.showSearchBox ? "100px" : "50px")};
   transition: height 0.5s;
   width: 100%;
   position: relative;

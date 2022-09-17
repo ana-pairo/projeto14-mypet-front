@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BsTrash } from "react-icons/bs";
+
 import styled from "styled-components";
 import Footer from "../../common/Footer/Footer";
 import Header from "../../common/Header/Header";
-
-import { BsTrash } from "react-icons/bs";
+import FooterButton from "../../common/Buttons/FooterButton";
 
 export default function Cart() {
   const [showSearchBox, setShowSearchBox] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Wrapper>
@@ -32,15 +35,58 @@ export default function Cart() {
             </PriceDetails>
           </DetailsContainer>
         </Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
-        <Product>oi</Product>
+        <Product>
+          <Image>
+            <img src="https://static.petz.com.br/fotos/1660162896325_mini.jpg" />
+          </Image>
+          <DetailsContainer>
+            <Details>
+              <Title>Ração super premium a</Title>
+              <Trash>
+                <BsTrash size="30px" />
+              </Trash>
+            </Details>
+            <LineSeparator />
+            <PriceDetails>
+              <Price>R$ 3258,56</Price>
+              <Counter />
+            </PriceDetails>
+          </DetailsContainer>
+        </Product>
+        <Product>
+          <Image>
+            <img src="https://static.petz.com.br/fotos/1660162896325_mini.jpg" />
+          </Image>
+          <DetailsContainer>
+            <Details>
+              <Title>Ração super premium a</Title>
+              <Trash>
+                <BsTrash size="30px" />
+              </Trash>
+            </Details>
+            <LineSeparator />
+            <PriceDetails>
+              <Price>R$ 3258,56</Price>
+              <Counter />
+            </PriceDetails>
+          </DetailsContainer>
+        </Product>
       </ListContainer>
+
+      <Total>
+        <FinalPrice>
+          Total:
+          <div>R$ 2584,55</div>
+        </FinalPrice>
+        <FooterButton
+          onClick={() => {
+            navigate("/checkout");
+          }}
+        >
+          Checkout
+        </FooterButton>
+      </Total>
+
       <Footer />
     </Wrapper>
   );
@@ -57,10 +103,12 @@ const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: ${(props) => (props.showSearchBox ? "69%" : "76%")};
+  height: ${(props) => (props.showSearchBox ? "55%" : "62%")};
   transition: height 0.5s;
   align-items: center;
-  position: relative;
+  position: absolute;
+  top: ${(props) => (props.showSearchBox ? "110px" : "60px")};
+  transition: top 0.5s;
   overflow-y: scroll;
 `;
 
@@ -138,3 +186,28 @@ const Price = styled.div`
 `;
 
 const Counter = styled.div``;
+
+const Total = styled.div`
+  height: 15%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 12.5%;
+`;
+
+const FinalPrice = styled.div`
+  width: 70%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  div {
+    display: flex;
+    font-weight: 600;
+    font-family: "Raleway", sans-serif;
+  }
+`;
