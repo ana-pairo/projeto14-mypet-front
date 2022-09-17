@@ -59,7 +59,7 @@ export default function Cart() {
           </Image>
           <DetailsContainer>
             <Details>
-              <Title>Ração super premium a</Title>
+              <Title>Product Name</Title>
               <Trash>
                 <BsTrash size="30px" />
               </Trash>
@@ -121,7 +121,6 @@ const Product = styled.div`
   flex-direction: row;
   box-shadow: 0 1px 8px -5px #333;
   resize: vertical;
-  box-sizing: content-box;
 `;
 
 const Image = styled.div`
