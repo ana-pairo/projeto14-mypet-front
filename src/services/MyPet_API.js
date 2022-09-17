@@ -3,13 +3,13 @@ import axios from "axios";
 const BASE_URL = "http://localhost:5000";
 
 function openClientSession(body) {
-  const promise = axios.post(`${BASE_URL}/sessions`, body);
+  const promise = axios.post(`${BASE_URL}/signIn`, body);
 
   return promise;
 }
 
 function createClient(body) {
-  const promise = axios.post(`${BASE_URL}/clients`, body);
+  const promise = axios.post(`${BASE_URL}/signUp`, body);
 
   return promise;
 }

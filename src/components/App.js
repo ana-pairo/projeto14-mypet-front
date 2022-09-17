@@ -1,7 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "../common/Footer/Footer";
 
 import GlobalStyle from "../common/GlobalStyles";
+import Cart from "./Cart/Cart";
 import Login from "./Login/Login";
+import ProductDescription from "./Products/ProductDescription";
 import Register from "./Register/Register";
 
 export default function App() {
@@ -13,7 +16,10 @@ export default function App() {
           <Route path="/" element={<div>HELLO WORD</div>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Register />} />
-          <Route path="/home" element={<div>home</div>} />
+          <Route path="/home" element={<Footer />} />
+          <Route path="/product/:productId" element={<ProductDescription />} />
+          <Route path="/carrinho" element={<Cart />} />
+          <Route path="/checkout" element={<div>checkou</div>} />
         </Routes>
       </BrowserRouter>
     </>
