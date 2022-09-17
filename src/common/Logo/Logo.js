@@ -17,10 +17,13 @@ const Wrapper = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const LogoMarca = styled.img`
   border-radius: 100%;
+  height: 100px;
+  width: 100px;
 `;
 
 const LogoTipo = styled.div`
