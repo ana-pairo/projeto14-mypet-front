@@ -1,18 +1,17 @@
 import styled from "styled-components"
 import Product from "./Product"
 import { searchProductsByName } from "../../services/MyPet_API"
+import { useLocation } from "react-router-dom"
 
 export default function Search() {
-
-    async function teste(){
-        const res = await searchProductsByName("a")
-        console.log(res)
-    }
-    teste()
+    const location = useLocation()
+    console.log()
+    const search = location.pathname.replace("/search/", "").toUpperCase()
+    
     return (
         <Container>
 
-            <Title><p>Resultados para "PESQUISA"</p></Title>
+            <Title><p>Resultados para "{search}"</p></Title>
 
             <ContainerProducts>
                 <Product teste={1}/>

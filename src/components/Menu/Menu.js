@@ -3,12 +3,14 @@ import styled from "styled-components";
 import logo from "../../assets/img/logomarca.png"
 import user from "../../assets/img/user-icon.svg"
 import search from "../../assets/img/search-icon.svg"
+import { searchProductsByName } from '../../services/MyPet_API';
 
 import { useState } from "react";
 import axios from "axios";
 
 
 export default function Menu ({menuIsVisible, setMenuIsVisible}) {
+
     const [form, setForm] = useState({
         search:""
     })
@@ -24,8 +26,9 @@ export default function Menu ({menuIsVisible, setMenuIsVisible}) {
     async function sendForm(){
         
         try {
-            const res = await axios.get(`http://localhost:5000/search/${form.search}`) 
-            console.log(res)
+            const res = await searchProductsByName(form.search)
+            navigate(`/search/${form.search}`, {teste:1})
+            console.log(res.data)
 
         } catch (error) {
             console.log(error)

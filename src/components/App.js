@@ -13,13 +13,14 @@ import Search from "./Search/Search";
 export default function App() {
 
   const [menuIsVisible, setMenuIsVisible] = useState(true)
+  const [search, setSearch] = useState()
 
   return (
     <>
       <GlobalStyle />
       <BrowserRouter>
 
-      <Menu menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible}/>
+      <Menu menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} search={search} setSearch={setSearch}/>
 
         <Routes>
 
@@ -28,7 +29,7 @@ export default function App() {
           <Route path="/cadastro" element={<Register />} />
           <Route path="/home" element={<Footer />} />
           <Route path="/product/:productId" element={<ProductDescription />} />
-          <Route path="/search/:search" element={<Search />} />
+          <Route path="/search/:search" element={<Search search={search} setSearch={setSearch}/>} />
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/checkout" element={<div>checkou</div>} />
         </Routes>
