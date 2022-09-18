@@ -48,7 +48,7 @@ const ButtonWrapper = styled.button`
   background: #f1c40f;
   border-radius: 30px;
   opacity: ${(props) => (props.isDisable ? 0.7 : 1)};
-  height: 60px;
+  height: 58px;
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   line-height: 30px;
