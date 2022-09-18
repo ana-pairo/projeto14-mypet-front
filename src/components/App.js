@@ -5,7 +5,6 @@ import Footer from "../common/Footer/Footer";
 import GlobalStyle from "../common/GlobalStyles";
 import Cart from "./Cart/Cart";
 import Login from "./Login/Login";
-import Menu from "./Menu/Menu";
 import ProductDescription from "./Products/ProductDescription";
 import Register from "./Register/Register";
 import Search from "./Search/Search";
@@ -19,9 +18,6 @@ export default function App() {
     <>
       <GlobalStyle />
       <BrowserRouter>
-
-      <Menu menuIsVisible={menuIsVisible} setMenuIsVisible={setMenuIsVisible} search={search} setSearch={setSearch}/>
-
         <Routes>
 
           <Route path="/" element={<div>HELLO WORD</div>} />
