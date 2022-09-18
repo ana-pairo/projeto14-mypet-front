@@ -8,7 +8,7 @@ import Login from "./Login/Login";
 import Menu from "./Menu/Menu";
 import ProductDescription from "./Products/ProductDescription";
 import Register from "./Register/Register";
-import Home from "./home/home";
+import Home from "./home/Home";
 
 export default function App() {
 
