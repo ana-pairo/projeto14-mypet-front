@@ -1,20 +1,20 @@
 import styled from "styled-components"
 import Product from "./Product"
-import { searchProductsByName } from "../../services/MyPet_API"
+import { searchProductsByType } from "../../services/MyPet_API"
 import { useLocation } from "react-router-dom"
 import Menu from "../Menu/Menu"
 import Footer from "../../common/Footer/Footer"
 import { useEffect, useState } from "react"
 
-export default function Search() {
+export default function TypeSearch() {
     const location = useLocation()
     console.log()
-    let search = decodeURIComponent(location.pathname.replace("/search/", ""))
+    let search = decodeURIComponent(location.pathname.replace("/", ""))
 
     const [array, setArray] = useState([])
 
     async function searchFunction(){
-        setArray(await searchProductsByName(search))
+        setArray(await searchProductsByType(search))
     }
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function Search() {
             
             <Container>
 
-                <Title><p>Resultados para "{search}"</p></Title>
+                <Title><p>{search}</p></Title>
 
                 <ContainerProducts>
 
@@ -73,7 +73,7 @@ const Title = styled.div`
     border-bottom: 3px solid #f7f7f7;
 
     p {
-        font-size:17px;
+        font-size:19px;
         font-weight:700;
         color:#b3b3b3;
     }

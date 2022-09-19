@@ -10,8 +10,10 @@ import Search from "./Search/Search";
 import ProductDescription from "./Products/ProductDescription";
 import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
+import TypeSearch from "./Search/TypeSearch";
 
 export default function App() {
+
   return (
     <>
       <GlobalStyle />
@@ -21,7 +23,8 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Register />} />
           <Route path="/product/:productId" element={<ProductDescription />} />
-          <Route path="/search/:search" element={<Search/>} />
+          <Route path="/search/:search" element={<Search />} />
+          <Route path="/:typeSearch" element={<TypeSearch />} />
           <Route path="/home" element={<Home/>} />
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/checkout" element={<div>checkou</div>} />
