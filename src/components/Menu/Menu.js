@@ -3,36 +3,34 @@ import styled from "styled-components";
 import logo from "../../assets/img/logomarca.png"
 import user from "../../assets/img/user-icon.svg"
 import search from "../../assets/img/search-icon.svg"
+import { searchProductsByName } from '../../services/MyPet_API';
 
 import { useState } from "react";
 import axios from "axios";
 
+export default function Menu () {
 
-export default function Menu ({menuIsVisible, setMenuIsVisible}) {
     const [form, setForm] = useState({
         search:""
     })
 
     const navigate = useNavigate();
-    function goToUser (){
-        setMenuIsVisible(!menuIsVisible)
-        navigate("/login")
-    }
+
     function handleForm(e){
         setForm({[e.target.name]: e.target.value})
     }
     async function sendForm(){
-        
-        try {
-            const res = await axios.get(`http://localhost:5000/search/${form.search}`) 
-            console.log(res)
 
+        if (!form.search) return
+        try {
+            const res = await searchProductsByName(form.search)
+            navigate(`/search/${form.search}`, {teste:1})
+            console.log(res.data)
         } catch (error) {
             console.log(error)
         }
     }
     return (
-        menuIsVisible ? (
 
         <Container>
 
@@ -42,10 +40,11 @@ export default function Menu ({menuIsVisible, setMenuIsVisible}) {
                     <img src={logo} onClick={() => navigate("/home")}/>                    
                 </Logo>
 
-                <Tittle onClick={() => navigate("/")}>MyPets</Tittle>
+
+                <Tittle onClick={() => navigate("/home")}>MyPets</Tittle>
 
                 <User>
-                    <img src={user} onClick={() => {goToUser()}}/>
+                    <img src={user} onClick={() => navigate('login')}/>
                 </User>
 
             </MenuContainer>
@@ -59,7 +58,6 @@ export default function Menu ({menuIsVisible, setMenuIsVisible}) {
             
         </Container>
 
-        ):(<></>)
     )
 
 }
