@@ -1,14 +1,18 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components"
-import ImageExample from '../../assets/img/product-example.jpeg'
 
+export default function Product({imageURL, name, price}){
+    const navigate = useNavigate()
 
-export default function Product(){
+    const priceFixed = Number(price/100).toFixed(2).replace(".",",")
+    const productId = encodeURIComponent(name);
+
     return(
-        <Container>
+        <Container onClick={() => navigate("/product/" + productId)}>
 
-            <img src={ImageExample}/>
-            <ProductName>Ração top</ProductName>
-            <ProductPrice>R$ 1000,00</ProductPrice>
+            <img src={imageURL}/>
+            <ProductName>{name}</ProductName>
+            <ProductPrice>R$ {priceFixed}</ProductPrice>
 
         </Container>
     )

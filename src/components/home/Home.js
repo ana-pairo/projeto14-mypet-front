@@ -5,10 +5,36 @@ import Vantagens from "./Vantagens"
 import Menu from "../Menu/Menu"
 import Footer from "../../common/Footer/Footer"
 import { useNavigate } from "react-router-dom"
+import { searchAll } from "../../services/MyPet_API"
+import { useEffect, useState} from "react"
 
 export default function Home (){
 
     const navigate = useNavigate()
+    const [array, setArray] = useState()
+    const [bestSellers, setBestSellers] = useState()
+
+    function compareSells(a, b) {
+        return a.sellsNumber - b.sellsNumber;
+    }
+    
+    async function searchNewest(){
+        let arr = await searchAll()
+        arr = arr.data.reverse().filter((e, i)=> i < 10) //10 ultimos lançamentos
+        setArray(arr)
+    }
+    async function searchBestSeller(){
+        let arr = await searchAll()
+        arr = arr.data.sort(compareSells).reverse().filter((e, i)=> i < 10) //10 mais vendidos
+        setBestSellers(arr)
+    }
+    
+    useEffect(()=>{
+        searchNewest()
+        searchBestSeller()
+    }, [])
+
+    console.log(bestSellers)
     return(
         <>
             <Menu/>
@@ -18,10 +44,10 @@ export default function Home (){
                 <ContainerPets>
 
                     <IconPets type={"Cachorros"}/>
-                    <IconPets type={"Gatos"} onClick={() => navigate(`/Gatos`)}/>
-                    <IconPets type={"Passaros"} onClick={() => navigate(`/Passaros`)}/>
-                    <IconPets type={"Peixes"} onClick={() => navigate(`/Peixes`)}/>
-                    <IconPets type={"Outros"} onClick={() => navigate(`/Outros`)}/>
+                    <IconPets type={"Gatos"}/>
+                    <IconPets type={"Passaros"}/>
+                    <IconPets type={"Peixes"}/>
+                    <IconPets type={"Outros"}/>
 
                 </ContainerPets>
                 
@@ -30,10 +56,7 @@ export default function Home (){
 
                     <Products>
 
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
+                        {(array) ? (array.map((e, i) => <Product imageURL={e.imageURL} name={e.name} price={e.price} key={i}/>)):(<></>)}
 
                     </Products>
                 </Setor>
@@ -51,10 +74,7 @@ export default function Home (){
 
                     <Products>
 
-                        <Product/>
-                        <Product/>
-                        <Product/>
-                        <Product/>
+                        {(bestSellers) ? (bestSellers.map((e, i) => <Product imageURL={e.imageURL} name={e.name} price={e.price} key={i}/>)):(<></>)}
 
                     </Products>
                 </Setor>
