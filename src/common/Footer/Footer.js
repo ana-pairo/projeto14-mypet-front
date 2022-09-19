@@ -21,7 +21,7 @@ export default function Footer() {
         size="35px"
         color="#f1c40f"
         onClick={() => {
-          navigate("/home");
+          navigate("/");
         }}
       />
 

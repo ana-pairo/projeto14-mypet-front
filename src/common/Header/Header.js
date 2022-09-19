@@ -11,7 +11,7 @@ export default function Header({ children }) {
           size="30px"
           color="#F1C40F"
           onClick={() => {
-            navigate("/home");
+            navigate("/");
           }}
         />
       </div>
