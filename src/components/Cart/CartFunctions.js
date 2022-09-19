@@ -1,4 +1,10 @@
 function onAdd({ product }) {
+  if (JSON.parse(localStorage.getItem("Cart")) === null) {
+    const newCart = [{ ...product, quantity: 1 }];
+    localStorage.setItem("Cart", JSON.stringify(newCart));
+    return newCart;
+  }
+
   const cartItems = JSON.parse(localStorage.getItem("Cart"));
   const exist = cartItems.find((object) => object._id === product._id);
 

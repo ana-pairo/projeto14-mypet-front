@@ -36,7 +36,6 @@ export default function Home() {
     searchBestSeller();
   }, []);
 
-  console.log(bestSellers);
   return (
     <>
       <Menu />

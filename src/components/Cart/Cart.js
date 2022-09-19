@@ -10,11 +10,7 @@ import Footer from "../../common/Footer/Footer";
 // import Header from "../../common/Header/Header";
 import FooterButton from "../../common/Buttons/FooterButton";
 import emptyCart from "../../assets/img/box.png";
-import {
-  onAdd,
-  onRemove,
-  removeProduct,
-} from "../../common/Functions/CartFunctions";
+import { onAdd, onRemove, removeProduct } from "./CartFunctions";
 import {
   Wrapper,
   Header,
@@ -40,7 +36,13 @@ export default function Cart() {
   // const [showSearchBox, setShowSearchBox] = useState(false);
   const navigate = useNavigate();
   const cartItems = JSON.parse(localStorage.getItem("Cart"));
-  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+  let itemsPrice;
+  if (
+    JSON.parse(localStorage.getItem("Cart")) !== null &&
+    cartItems.length !== 0
+  ) {
+    itemsPrice = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
+  }
 
   return (
     <Wrapper>
@@ -146,7 +148,11 @@ export default function Cart() {
             </FinalPrice>
             <FooterButton
               onClick={() => {
-                navigate("/checkout");
+                if (JSON.parse(localStorage.getItem("UserToken")) === null) {
+                  navigate("/login");
+                } else {
+                  navigate("/checkout");
+                }
               }}
             >
               Checkout

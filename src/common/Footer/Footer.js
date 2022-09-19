@@ -11,7 +11,7 @@ export default function Footer() {
   const navigate = useNavigate();
   const { cartItems } = useContext(CartContext);
   let itemsQuantity;
-  if (cartItems !== null) {
+  if (cartItems !== null && cartItems.length !== 0) {
     itemsQuantity = cartItems.reduce((a, c) => a + c.quantity, 0);
   }
 

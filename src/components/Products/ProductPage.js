@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 import {
@@ -14,18 +14,32 @@ import {
   AddCart,
   Price,
 } from "./Style";
+import { onAdd } from "../Cart/CartFunctions";
+import { getProducts } from "./GetProducts";
 import Footer from "../../common/Footer/Footer";
-import data from "../../data";
 import notfound from "../../assets/img/bro.png";
 import CartContext from "../../contexts/CartContext";
-import { onAdd } from "../../common/Functions/CartFunctions";
 
 export default function ProductDescription(req) {
   const navigate = useNavigate();
   const { setCartItems } = useContext(CartContext);
   const { productId } = useParams();
+  const [product, setProduct] = useState([]);
 
-  const product = data.products.find((Object) => Object._id === productId);
+  useEffect(() => {
+    getProducts()
+      .then((res) => {
+        const productList = [...res.data];
+        const exist = productList.find((object) => object.name === productId);
+
+        if (exist) {
+          setProduct({ ...exist });
+        } else {
+          setProduct(null);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Wrapper>
