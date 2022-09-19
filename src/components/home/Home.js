@@ -3,9 +3,12 @@ import Product from "./product"
 import IconPets from "./IconPets"
 import Vantagens from "./Vantagens"
 import Menu from "../Menu/Menu"
+import Footer from "../../common/Footer/Footer"
+import { useNavigate } from "react-router-dom"
 
 export default function Home (){
 
+    const navigate = useNavigate()
     return(
         <>
             <Menu/>
@@ -14,11 +17,11 @@ export default function Home (){
 
                 <ContainerPets>
 
-                    <IconPets type={"Cachorros"}/>
-                    <IconPets type={"Gatos"}/>
-                    <IconPets type={"Passaros"}/>
-                    <IconPets type={"Peixes"}/>
-                    <IconPets type={"Outros"}/>
+                    <IconPets type={"Cachorros"} onClick={() => navigate(`/Cachorros`)}/>
+                    <IconPets type={"Gatos"} onClick={() => navigate(`/Gatos`)}/>
+                    <IconPets type={"Passaros"} onClick={() => navigate(`/Passaros`)}/>
+                    <IconPets type={"Peixes"} onClick={() => navigate(`/Peixes`)}/>
+                    <IconPets type={"Outros"} onClick={() => navigate(`/Outros`)}/>
 
                 </ContainerPets>
                 
@@ -57,6 +60,8 @@ export default function Home (){
                 </Setor>
 
             </Container>
+
+            <Footer/>
         </>
     )
 }
