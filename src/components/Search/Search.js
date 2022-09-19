@@ -13,15 +13,12 @@ export default function Search() {
     const [array, setArray] = useState([])
 
     async function searchFunction(){
-
         setArray(await searchProductsByName(search))
-
     }
 
     useEffect(() => {
         searchFunction()
     }, [search])
-    
     
     return (
         <>
@@ -38,9 +35,7 @@ export default function Search() {
                     array.data.map((e, i)=><Product name={e.name} rate={e.rate} price={e.price} imageURL={e.imageURL} key={i}/>)
 
                     ):(<p>carregando...</p>)}
-
-                    {/* <Product teste={2}/> */}
-                    
+                
                 </ContainerProducts>
             </Container>
         </>
