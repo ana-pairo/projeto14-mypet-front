@@ -20,7 +20,7 @@ export default function Menu () {
         setForm({[e.target.name]: e.target.value})
     }
     async function sendForm(){
-        
+        if (!form.search) return
         try {
             const res = await searchProductsByName(form.search)
             navigate(`/search/${form.search}`, {teste:1})

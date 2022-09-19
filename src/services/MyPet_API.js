@@ -22,7 +22,14 @@ function searchProductsByName(searchData){
       return false
   }
 }
-
+function searchAll(){
+  try {
+      const res = axios.get(`http://localhost:5000/search`)
+      return res
+  } catch (error) {
+      return false
+  }
+}
 function newProductAdd(body){
   try {
       const res = axios.post(`http://localhost:5000/admin/newproduct`, body)
@@ -32,4 +39,4 @@ function newProductAdd(body){
   }
 }
 
-export { openClientSession, createClient, searchProductsByName, newProductAdd };
+export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll};

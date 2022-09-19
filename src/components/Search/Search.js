@@ -3,11 +3,25 @@ import Product from "./Product"
 import { searchProductsByName } from "../../services/MyPet_API"
 import { useLocation } from "react-router-dom"
 import Menu from "../Menu/Menu"
+import { useEffect, useState } from "react"
 
 export default function Search() {
     const location = useLocation()
     console.log()
-    const search = location.pathname.replace("/search/", "").toUpperCase()
+    let search = decodeURIComponent(location.pathname.replace("/search/", ""))
+
+    const [array, setArray] = useState([])
+
+    async function searchFunction(){
+
+        setArray(await searchProductsByName(search))
+
+    }
+
+    useEffect(() => {
+        searchFunction()
+    }, [search])
+    
     
     return (
         <>
@@ -18,13 +32,15 @@ export default function Search() {
                 <Title><p>Resultados para "{search}"</p></Title>
 
                 <ContainerProducts>
-                    <Product teste={1}/>
-                    <Product teste={2}/>
-                    <Product teste={2}/>
-                    <Product teste={2}/>
-                    <Product teste={2}/>
-                    <Product teste={2}/>
-                    <Product teste={2}/>
+
+                    {(array.data) ? (
+
+                    array.data.map((e, i)=><Product name={e.name} rate={e.rate} price={e.price} imageURL={e.imageURL} key={i}/>)
+
+                    ):(<p>carregando...</p>)}
+
+                    {/* <Product teste={2}/> */}
+                    
                 </ContainerProducts>
             </Container>
         </>

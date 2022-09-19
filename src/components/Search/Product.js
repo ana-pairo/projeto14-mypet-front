@@ -1,17 +1,19 @@
 import styled from "styled-components"
 
-export default function Product ({teste}){
+export default function Product ({name, rate, price, imageURL}){
+    const priceFixed = Number(price/100).toFixed(2).replace(".",",")
+    const rateFixed = Number(rate/10).toFixed(1).replace(".",",")
     return(
         <Container>
 
             <ContainerImage>
-                <img src="https://static.petz.com.br/fotos/1627308032393.jpg"/>
+                <img src={imageURL}/>
             </ContainerImage>
 
             <ContainerInfo>
-                <ProductTitle>{"Ração Úmida Dog Chow Sabor Carne para Cães Adultos de Raças Pequenas- 100g"}</ProductTitle>
-                <ProductRate> {4.7} / 5 ★</ProductRate>
-                <ProductPrice>{"R$ 49,00"}</ProductPrice>
+                <ProductTitle>{name}</ProductTitle>
+                <ProductRate> {rateFixed} / 5 ★</ProductRate>
+                <ProductPrice>R$ {(priceFixed)}</ProductPrice>
             </ContainerInfo>
 
         </Container>
