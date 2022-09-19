@@ -4,7 +4,7 @@ import logoImg from "../../assets/img/logomarca.png";
 export default function Logo() {
   return (
     <Wrapper>
-      <LogoMarca src={logoImg} />
+      <LogoMarca src={logoImg} alt="LogoMarca" />
       <LogoTipo>
         MyPet
         <div>Pet shop</div>
@@ -42,5 +42,3 @@ const LogoTipo = styled.div`
     right: 0;
   }
 `;
-
-// LOGOMARCA img

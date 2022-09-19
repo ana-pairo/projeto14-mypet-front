@@ -1,8 +1,10 @@
+import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import checkImage from "../../assets/img/check-image.png"
 
 export default function CompletedPurchase(){
+ 
     const navigate = useNavigate()
     return(
         <Container>

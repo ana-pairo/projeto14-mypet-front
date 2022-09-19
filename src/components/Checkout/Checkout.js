@@ -1,23 +1,16 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import Button from "../../common/Buttons/FormsButton"
+import CartContext from "../../contexts/CartContext";
 
 export default function Checkout (){
+    const {form, setForm } = useContext(CartContext);
     const navigate = useNavigate()
-
-    const [form, setForm] = useState({
-        CEP:"",
-        Endereço:"",
-        Numero:"",
-        Complemento:"",
-        Bairro:"",
-        Cidade:"",
-        Estado:"",
-        FormaDeEntrega:"",
-    })
+    
     function sendForm(){
         console.log(form)
+        navigate("/checkout/payment")
     }
     function handleForm(e){
         setForm({...form, [e.target.name]: e.target.value})
@@ -25,7 +18,7 @@ export default function Checkout (){
     return(
     <Container>
         <MenuCheckoutContainer>
-            <Icons>◄</Icons>
+            <Icons onClick={()=> navigate("/carrinho")}>◄</Icons>
             <Title>Endereço de Entrega</Title>
         </MenuCheckoutContainer>
 
