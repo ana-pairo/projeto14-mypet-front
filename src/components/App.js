@@ -9,6 +9,7 @@ import Register from "./Register/Register";
 import Search from "./Search/Search";
 import ProductDescription from "./Products/ProductDescription";
 import Home from "./home/Home";
+import NewProduct from "./NewProduct/NewProduct";
 
 export default function App() {
 
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/home" element={<Home/>} />
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/checkout" element={<div>checkou</div>} />
+          <Route path="/admin/newproduct" element={<NewProduct/>} />
         </Routes>
       </BrowserRouter>
     </>

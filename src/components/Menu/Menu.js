@@ -40,7 +40,7 @@ export default function Menu () {
                     <img src={logo} onClick={() => navigate("/home")}/>                    
                 </Logo>
 
-                <Tittle onClick={() => navigate("/")}>MyPets</Tittle>
+                <Tittle onClick={() => navigate("/home")}>MyPets</Tittle>
 
                 <User>
                     <img src={user} onClick={() => navigate('login')}/>
