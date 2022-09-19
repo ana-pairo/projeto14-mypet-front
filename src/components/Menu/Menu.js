@@ -32,10 +32,10 @@ export default function Menu() {
     <Container>
       <MenuContainer>
         <Logo>
-          <img src={logo} alt="logo" onClick={() => navigate("/home")} />
+          <img src={logo} alt="logo" onClick={() => navigate("/")} />
         </Logo>
 
-        <Tittle onClick={() => navigate("/home")}>MyPets</Tittle>
+        <Tittle onClick={() => navigate("/")}>MyPets</Tittle>
 
         <User>
           <img

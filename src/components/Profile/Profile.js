@@ -18,7 +18,7 @@ export default function Profile() {
 
         localStorage.removeItem("UserToken");
 
-        navigate("/home");
+        navigate("/");
       } catch (error) {
         console.log(error);
       }

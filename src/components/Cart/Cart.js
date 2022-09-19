@@ -53,7 +53,7 @@ export default function Cart() {
           <Total>
             <FooterButton
               onClick={() => {
-                navigate("/home");
+                navigate("/");
               }}
             >
               Compre agora!
