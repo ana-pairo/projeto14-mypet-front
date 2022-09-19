@@ -22,6 +22,14 @@ function searchProductsByName(searchData){
       return false
   }
 }
+function searchProductsByType(searchData){
+  try {
+      const res = axios.get(`http://localhost:5000/type/${searchData}`)
+      return res
+  } catch (error) {
+      return false
+  }
+}
 function searchAll(){
   try {
       const res = axios.get(`http://localhost:5000/search`)
@@ -39,4 +47,4 @@ function newProductAdd(body){
   }
 }
 
-export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll};
+export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll, searchProductsByType};

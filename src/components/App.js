@@ -10,6 +10,7 @@ import Search from "./Search/Search";
 import ProductPage from "./Products/ProductPage";
 import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
+import TypeSearch from "./Search/TypeSearch";
 
 export default function App() {
   const [cartItems, setCartItems] = useState(
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/cadastro" element={<Register />} />
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/search/:search" element={<Search />} />
+            <Route path="/:typeSearch" element={<TypeSearch />} />
             <Route path="/home" element={<Home />} />
             <Route path="/carrinho" element={<Cart />} />
             <Route path="/checkout" element={<div>checkou</div>} />

@@ -1,10 +1,13 @@
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom"
 
 export default function Product ({name, rate, price, imageURL}){
     const priceFixed = Number(price/100).toFixed(2).replace(".",",")
     const rateFixed = Number(rate/10).toFixed(1).replace(".",",")
+    const navigate = useNavigate()
+    const productId = encodeURIComponent(name);
     return(
-        <Container>
+        <Container onClick={() => navigate("/product/" + productId)}>
 
             <ContainerImage>
                 <img src={imageURL}/>
