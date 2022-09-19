@@ -10,7 +10,10 @@ import CartContext from "../../contexts/CartContext";
 export default function Footer() {
   const navigate = useNavigate();
   const { cartItems } = useContext(CartContext);
-  const itemsQuantity = cartItems.reduce((a, c) => a + c.quantity, 0);
+  let itemsQuantity;
+  if (cartItems !== null) {
+    itemsQuantity = cartItems.reduce((a, c) => a + c.quantity, 0);
+  }
 
   return (
     <Wrapper>
@@ -30,7 +33,7 @@ export default function Footer() {
         }}
       >
         <BsCart size="40px" color="#f1c40f" />
-        {cartItems.length !== 0 ? (
+        {cartItems !== null && cartItems.length !== 0 ? (
           <ItemsQuantity>{itemsQuantity}</ItemsQuantity>
         ) : (
           ""
