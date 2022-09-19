@@ -14,36 +14,36 @@ function createClient(body) {
   return promise;
 }
 
-function searchProductsByName(searchData){
+function searchProductsByName(searchData) {
   try {
-      const res = axios.get(`http://localhost:5000/search/${searchData}`)
-      return res
+    const res = axios.get(`http://localhost:5000/search/${searchData}`);
+    return res;
   } catch (error) {
-      return false
+    return false;
   }
 }
-function searchProductsByType(searchData){
+function searchProductsByType(searchData) {
   try {
-      const res = axios.get(`http://localhost:5000/type/${searchData}`)
-      return res
+    const res = axios.get(`http://localhost:5000/type/${searchData}`);
+    return res;
   } catch (error) {
-      return false
+    return false;
   }
 }
-function searchAll(){
+function searchAll() {
   try {
-      const res = axios.get(`http://localhost:5000/search`)
-      return res
+    const res = axios.get(`http://localhost:5000/search`);
+    return res;
   } catch (error) {
-      return false
+    return false;
   }
 }
-function newProductAdd(body){
+function newProductAdd(body) {
   try {
-      const res = axios.post(`http://localhost:5000/admin/newproduct`, body)
-      return res
+    const res = axios.post(`http://localhost:5000/admin/newproduct`, body);
+    return res;
   } catch (error) {
-      return false
+    return false;
   }
 }
 function sendClientDataForm(body){
@@ -55,4 +55,41 @@ function sendClientDataForm(body){
   }
 }
 
+
+async function getClientData(token) {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const promise = await axios.get(`${BASE_URL}/session`, config);
+
+  return promise;
+}
+
+async function deleteSession(token) {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const promise = await axios.delete(`${BASE_URL}/session`, config);
+
+  return promise;
+}
+
+export {
+  openClientSession,
+  createClient,
+  searchProductsByName,
+  newProductAdd,
+  searchAll,
+  searchProductsByType,
+  getClientData,
+  deleteSession,
+};
+
 export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll, searchProductsByType, sendClientDataForm};
+

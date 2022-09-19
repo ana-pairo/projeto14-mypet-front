@@ -1,10 +1,8 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { BsArrowLeftCircle } from "react-icons/bs";
 
 import {
   Wrapper,
-  Header,
   Container,
   NotFound,
   Image,
@@ -17,11 +15,11 @@ import {
 import { onAdd } from "../Cart/CartFunctions";
 import { getProducts } from "./GetProducts";
 import Footer from "../../common/Footer/Footer";
+import Header from "../../common/Header/Header";
 import notfound from "../../assets/img/bro.png";
 import CartContext from "../../contexts/CartContext";
 
-export default function ProductDescription(req) {
-  const navigate = useNavigate();
+export default function ProductDescription() {
   const { setCartItems } = useContext(CartContext);
   const { productId } = useParams();
   const [product, setProduct] = useState([]);
@@ -43,18 +41,7 @@ export default function ProductDescription(req) {
 
   return (
     <Wrapper>
-      <Header>
-        <div>
-          <BsArrowLeftCircle
-            size="30px"
-            color="#F1C40F"
-            onClick={() => {
-              navigate("/home");
-            }}
-          />
-        </div>
-        Produto
-      </Header>
+      <Header>Carrinho</Header>
       {product ? (
         <>
           <Container>

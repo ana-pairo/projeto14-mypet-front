@@ -15,6 +15,7 @@ import Checkout from "./Checkout/Checkout";
 import Payment from "./Checkout/Payment";
 import CompletedPurchase from "./Checkout/ CompletedPurchase";
 import CheckoutContext from "../contexts/CheckoutContext";
+import Profile from "./Profile/Profile";
 
 
 export default function App() {
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="/checkout/payment" element={<Payment/>} />
             <Route path="/thankyou" element={<CompletedPurchase/>} />
             <Route path="/admin/newproduct" element={<NewProduct />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </CartContext.Provider>
