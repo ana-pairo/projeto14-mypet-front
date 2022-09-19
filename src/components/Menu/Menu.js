@@ -8,7 +8,6 @@ import { searchProductsByName } from '../../services/MyPet_API';
 import { useState } from "react";
 import axios from "axios";
 
-
 export default function Menu () {
 
     const [form, setForm] = useState({
@@ -16,22 +15,23 @@ export default function Menu () {
     })
 
     const navigate = useNavigate();
+
     function handleForm(e){
         setForm({[e.target.name]: e.target.value})
     }
     async function sendForm(){
+
         if (!form.search) return
         try {
             const res = await searchProductsByName(form.search)
             navigate(`/search/${form.search}`, {teste:1})
             console.log(res.data)
-
         } catch (error) {
             console.log(error)
         }
     }
     return (
-       
+
         <Container>
 
             <MenuContainer>
@@ -39,6 +39,7 @@ export default function Menu () {
                 <Logo>
                     <img src={logo} onClick={() => navigate("/home")}/>                    
                 </Logo>
+
 
                 <Tittle onClick={() => navigate("/home")}>MyPets</Tittle>
 
@@ -56,6 +57,7 @@ export default function Menu () {
 
             
         </Container>
+
     )
 
 }
