@@ -1,9 +1,27 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import Button from "../../common/Buttons/FormsButton"
 
 export default function Checkout (){
     const navigate = useNavigate()
+
+    const [form, setForm] = useState({
+        CEP:"",
+        Endereço:"",
+        Numero:"",
+        Complemento:"",
+        Bairro:"",
+        Cidade:"",
+        Estado:"",
+        FormaDeEntrega:"",
+    })
+    function sendForm(){
+        console.log(form)
+    }
+    function handleForm(e){
+        setForm({...form, [e.target.name]: e.target.value})
+    }
     return(
     <Container>
         <MenuCheckoutContainer>
@@ -12,28 +30,28 @@ export default function Checkout (){
         </MenuCheckoutContainer>
 
         <Forms>
-            <input placeholder="CEP *"></input>
-            <input placeholder="Endereço *"></input>
-            <input placeholder="Numero *"></input>
-            <input placeholder="Complemento"></input>
-            <input placeholder="Bairro *"></input>
-            <input placeholder="Cidade *"></input>
-            <input placeholder="Estado *"></input>
+            <input placeholder="CEP *" name="CEP" onChange={handleForm} value={form.CEP} required></input>
+            <input placeholder="Endereço *" name="Endereço" onChange={handleForm} value={form.Endereço} required></input>
+            <input placeholder="Numero *" name="Numero" onChange={handleForm} value={form.Numero} required></input>
+            <input placeholder="Complemento" name="Complemento" onChange={handleForm} value={form.Complemento} required></input>
+            <input placeholder="Bairro *" name="Bairro" onChange={handleForm} value={form.Bairro} required></input>
+            <input placeholder="Cidade *" name="Cidade" onChange={handleForm} value={form.Cidade} required></input>
+            <input placeholder="Estado *" name="Estado" onChange={handleForm} value={form.Estado} required></input>
         </Forms>
 
         <SubTitle>Forma de Entrega</SubTitle>
 
         <FormsEntrega>
 
-            <input type="radio" name="entrega" value="Sedex" required></input>
+            <input type="radio" name="FormaDeEntrega" value="Sedex" onChange={handleForm} required></input>
             <span>Sedex: R$ 25,62 (5 dias uteis)</span>
-            <input type="radio" name="entrega" value="PAC" required></input>
+            <input type="radio" name="FormaDeEntrega" value="PAC" onChange={handleForm} required></input>
             <span>PAC: Grátis (14 dias uteis)</span>
 
         </FormsEntrega>
 
-        <ButtonStyle onClick={() => navigate("/checkout/payment")}>Ir para o Pagamento</ButtonStyle>
-
+        <ButtonStyle onClick={() => sendForm()}>Ir para o Pagamento</ButtonStyle>
+        {/* () => navigate("/checkout/payment") */}
     </Container>
     )
 }

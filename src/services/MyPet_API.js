@@ -46,5 +46,13 @@ function newProductAdd(body){
       return false
   }
 }
+function sendClientDataForm(body){
+  try {
+    const res = axios.post(`http://localhost:5000/checkout`, body)
+    return res
+  } catch (error) {
+    return false
+  }
+}
 
-export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll, searchProductsByType};
+export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll, searchProductsByType, sendClientDataForm};

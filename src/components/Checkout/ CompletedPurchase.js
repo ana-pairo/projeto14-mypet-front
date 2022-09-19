@@ -1,14 +1,16 @@
+import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import checkImage from "../../assets/img/check-image.png"
 
 export default function CompletedPurchase(){
+    const navigate = useNavigate()
     return(
         <Container>
             <img src={checkImage}/>
             <Title>Compra Finalizada</Title>
             <p>Falta pouco pra seus pedido chegar ate você! Agora é só esperar enquanto direcionamos ele para você!! Agradecemos pela confiaça ♥</p>
            
-            <ButtonStyle>Voltar para Pagina Inicial</ButtonStyle>
+            <ButtonStyle onClick={() => navigate("/home")}>Voltar para Pagina Inicial</ButtonStyle>
             
         </Container>
     )
