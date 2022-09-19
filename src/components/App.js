@@ -11,17 +11,38 @@ import ProductPage from "./Products/ProductPage";
 import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
 import TypeSearch from "./Search/TypeSearch";
+import Checkout from "./Checkout/Checkout";
+import Payment from "./Checkout/Payment";
+import CompletedPurchase from "./Checkout/ CompletedPurchase";
+import CheckoutContext from "../contexts/CheckoutContext";
 import Profile from "./Profile/Profile";
+
 
 export default function App() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("Cart"))
   );
+  const [form, setForm] = useState({
+    CEP:"",
+    Endereço:"",
+    Numero:"",
+    Complemento:"",
+    Bairro:"",
+    Cidade:"",
+    Estado:"",
+    FormaDeEntrega:"",
+    
+    CardNumber:"",
+    CardName:"",
+    CPF:"",
+    CardValidData:"",
+    CardSecurityCode:"",
+  })
 
   return (
     <>
       <GlobalStyle />
-      <CartContext.Provider value={{ cartItems, setCartItems }}>
+      <CartContext.Provider  value={{ cartItems, setCartItems, form, setForm}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<div>HELLO WORD</div>} />
@@ -32,12 +53,15 @@ export default function App() {
             <Route path="/:typeSearch" element={<TypeSearch />} />
             <Route path="/home" element={<Home />} />
             <Route path="/carrinho" element={<Cart />} />
-            <Route path="/checkout" element={<div>checkou</div>} />
+            <Route path="/checkout" element={<Checkout/>} />
+            <Route path="/checkout/payment" element={<Payment/>} />
+            <Route path="/thankyou" element={<CompletedPurchase/>} />
             <Route path="/admin/newproduct" element={<NewProduct />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </CartContext.Provider>
+      
     </>
   );
 }

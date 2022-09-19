@@ -46,6 +46,15 @@ function newProductAdd(body) {
     return false;
   }
 }
+function sendClientDataForm(body){
+  try {
+    const res = axios.post(`http://localhost:5000/checkout`, body)
+    return res
+  } catch (error) {
+    return false
+  }
+}
+
 
 async function getClientData(token) {
   const config = {
@@ -81,3 +90,6 @@ export {
   getClientData,
   deleteSession,
 };
+
+export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll, searchProductsByType, sendClientDataForm};
+
