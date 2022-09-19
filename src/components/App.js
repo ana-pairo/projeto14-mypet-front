@@ -5,7 +5,6 @@ import Footer from "../common/Footer/Footer";
 import GlobalStyle from "../common/GlobalStyles";
 import Cart from "./Cart/Cart";
 import Login from "./Login/Login";
-import ProductDescription from "./Products/ProductDescription";
 import Register from "./Register/Register";
 import Search from "./Search/Search";
 import ProductDescription from "./Products/ProductDescription";
