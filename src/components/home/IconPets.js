@@ -4,6 +4,7 @@ import Passaros from '../../assets/img/passaro-icon.jpeg'
 import Peixes from '../../assets/img/peixe-icon.jpeg'
 import Outros from '../../assets/img/other-icon.jpeg'
 
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 export default function IconPets({type}){
@@ -22,9 +23,12 @@ export default function IconPets({type}){
                 break;     
         }
     }
+    
+    const navigate = useNavigate()
+
     return(
 
-        <Container onClick={() => console.log("Voce clicou em " + type)}>
+        <Container onClick={() => navigate(`/${type}`)}>
             <PetImage src={ConverterType(type)}/>
             <PetSubtitle>{type}</PetSubtitle>
         </Container>

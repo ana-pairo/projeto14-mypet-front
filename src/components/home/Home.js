@@ -17,7 +17,7 @@ export default function Home (){
 
                 <ContainerPets>
 
-                    <IconPets type={"Cachorros"} onClick={() => navigate(`/Cachorros`)}/>
+                    <IconPets type={"Cachorros"}/>
                     <IconPets type={"Gatos"} onClick={() => navigate(`/Gatos`)}/>
                     <IconPets type={"Passaros"} onClick={() => navigate(`/Passaros`)}/>
                     <IconPets type={"Peixes"} onClick={() => navigate(`/Peixes`)}/>
