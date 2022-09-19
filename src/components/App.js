@@ -19,7 +19,6 @@ export default function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
-
           <Route path="/" element={<div>HELLO WORD</div>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Register />} />
