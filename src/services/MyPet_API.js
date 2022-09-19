@@ -87,9 +87,8 @@ export {
   newProductAdd,
   searchAll,
   searchProductsByType,
+  sendClientDataForm,
   getClientData,
   deleteSession,
 };
-
-export { openClientSession, createClient, searchProductsByName, newProductAdd, searchAll, searchProductsByType, sendClientDataForm};
 
