@@ -9,17 +9,13 @@ import { useState } from "react";
 import axios from "axios";
 
 
-export default function Menu ({menuIsVisible, setMenuIsVisible}) {
+export default function Menu () {
 
     const [form, setForm] = useState({
         search:""
     })
 
     const navigate = useNavigate();
-    function goToUser (){
-        setMenuIsVisible(!menuIsVisible)
-        navigate("/login")
-    }
     function handleForm(e){
         setForm({[e.target.name]: e.target.value})
     }
@@ -35,8 +31,7 @@ export default function Menu ({menuIsVisible, setMenuIsVisible}) {
         }
     }
     return (
-        menuIsVisible ? (
-
+       
         <Container>
 
             <MenuContainer>
@@ -48,7 +43,7 @@ export default function Menu ({menuIsVisible, setMenuIsVisible}) {
                 <Tittle onClick={() => navigate("/")}>MyPets</Tittle>
 
                 <User>
-                    <img src={user} onClick={() => {goToUser()}}/>
+                    <img src={user} onClick={() => navigate('login')}/>
                 </User>
 
             </MenuContainer>
@@ -61,8 +56,6 @@ export default function Menu ({menuIsVisible, setMenuIsVisible}) {
 
             
         </Container>
-
-        ):(<></>)
     )
 
 }

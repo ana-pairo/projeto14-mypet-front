@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Product from "./Product"
 import { searchProductsByName } from "../../services/MyPet_API"
 import { useLocation } from "react-router-dom"
+import Menu from "../Menu/Menu"
 
 export default function Search() {
     const location = useLocation()
@@ -9,20 +10,24 @@ export default function Search() {
     const search = location.pathname.replace("/search/", "").toUpperCase()
     
     return (
-        <Container>
+        <>
+            <Menu/>
+            
+            <Container>
 
-            <Title><p>Resultados para "{search}"</p></Title>
+                <Title><p>Resultados para "{search}"</p></Title>
 
-            <ContainerProducts>
-                <Product teste={1}/>
-                <Product teste={2}/>
-                <Product teste={2}/>
-                <Product teste={2}/>
-                <Product teste={2}/>
-                <Product teste={2}/>
-                <Product teste={2}/>
-            </ContainerProducts>
-        </Container>
+                <ContainerProducts>
+                    <Product teste={1}/>
+                    <Product teste={2}/>
+                    <Product teste={2}/>
+                    <Product teste={2}/>
+                    <Product teste={2}/>
+                    <Product teste={2}/>
+                    <Product teste={2}/>
+                </ContainerProducts>
+            </Container>
+        </>
     )
 }
 
