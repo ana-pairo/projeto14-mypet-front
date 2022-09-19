@@ -11,6 +11,7 @@ import ProductDescription from "./Products/ProductDescription";
 import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
 import TypeSearch from "./Search/TypeSearch";
+import Checkout from "./Checkout/Checkout";
 
 export default function App() {
 
@@ -28,7 +29,7 @@ export default function App() {
           <Route path="/:typeSearch" element={<TypeSearch />} />
           <Route path="/home" element={<Home/>} />
           <Route path="/carrinho" element={<Cart />} />
-          <Route path="/checkout" element={<div>checkou</div>} />
+          <Route path="/checkout" element={<Checkout/>} />
           <Route path="/admin/newproduct" element={<NewProduct/>} />
         </Routes>
       </BrowserRouter>
