@@ -1,46 +1,4 @@
 import styled from "styled-components";
-import { useNavigate, useParams } from "react-router-dom";
-import { BsArrowLeftCircle } from "react-icons/bs";
-import Footer from "../../common/Footer/Footer";
-
-export default function ProductDescription(req) {
-  const navigate = useNavigate();
-  const { productId } = useParams();
-  return (
-    <Wrapper>
-      <Header>
-        <div>
-          <BsArrowLeftCircle
-            size="30px"
-            color="#F1C40F"
-            onClick={() => {
-              navigate("/home");
-            }}
-          />
-        </div>
-        Produto
-      </Header>
-      <Container>
-        <Image>
-          <img src="https://static.petz.com.br/fotos/1660162896325_mini.jpg" />
-        </Image>
-        <Details>
-          <Title>Product Name</Title>
-          <Description>Product Description</Description>
-        </Details>
-      </Container>
-      <AddCart>
-        <Price>
-          Preço:
-          <div>R$ 2584,55</div>
-        </Price>
-        <button>Adicionar ao carrinho</button>
-      </AddCart>
-
-      <Footer />
-    </Wrapper>
-  );
-}
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -75,27 +33,55 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  top: 70px;
+  overflow-y: scroll;
+  padding: 20px;
+`;
+
+const NotFound = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: 61%;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   position: fixed;
   top: 70px;
   overflow-y: scroll;
   padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  color: rgb(0, 0, 0, 0.5);
+  img {
+    width: 80%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
 `;
 
 const Image = styled.div`
   width: 75%;
+  min-width: 250px;
+  height: 300px;
   border-radius: 15px;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 1px 8px -3px #333;
-  object-fit: cover;
+  object-fit: fill;
+  position: absolute;
+  top: 10px;
 
   img {
-    max-width: 100%;
-    max-height: 100%;
+    max-height: 280px;
+    max-width: 240px;
   }
 `;
 
@@ -105,7 +91,8 @@ const Details = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 20px;
+  position: absolute;
+  top: 330px;
 `;
 
 const Title = styled.div`
@@ -117,6 +104,7 @@ const Title = styled.div`
   justify-content: center;
   text-align: center;
   margin-bottom: 10px;
+  color: #000000;
 `;
 
 const Description = styled.div`
@@ -127,8 +115,9 @@ const Description = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-
+  color: #000000;
   margin-bottom: 20px;
+  resize: vertical;
 `;
 
 const AddCart = styled.div`
@@ -175,3 +164,16 @@ const Price = styled.div`
     font-family: "Raleway", sans-serif;
   }
 `;
+
+export {
+  Wrapper,
+  Header,
+  Container,
+  NotFound,
+  Image,
+  Details,
+  Title,
+  Description,
+  AddCart,
+  Price,
+};
