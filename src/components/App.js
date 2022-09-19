@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Register />} />
           <Route path="/product/:productId" element={<ProductDescription />} />
-          <Route path="/search/:search" element={<Search search={search} setSearch={setSearch}/>} />
+          <Route path="/search/:search" element={<Search/>} />
           <Route path="/home" element={<Home/>} />
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/checkout" element={<div>checkou</div>} />
