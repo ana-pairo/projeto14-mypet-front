@@ -7,28 +7,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Header = styled.div`
-  height: 60px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Montserrat", sans-serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: #f1c40f;
-
-  div {
-    display: flex;
-    position: absolute;
-    top: 13px;
-    left: 15px;
-  }
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -167,7 +145,6 @@ const Price = styled.div`
 
 export {
   Wrapper,
-  Header,
   Container,
   NotFound,
   Image,

@@ -2,18 +2,15 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { BsTrash } from "react-icons/bs";
 import { VscDiffRemoved, VscDiffAdded } from "react-icons/vsc";
-import { BsArrowLeftCircle } from "react-icons/bs";
-// import styled from "styled-components";
 
 import CartContext from "../../contexts/CartContext";
 import Footer from "../../common/Footer/Footer";
-// import Header from "../../common/Header/Header";
 import FooterButton from "../../common/Buttons/FooterButton";
+import Header from "../../common/Header/Header";
 import emptyCart from "../../assets/img/box.png";
 import { onAdd, onRemove, removeProduct } from "./CartFunctions";
 import {
   Wrapper,
-  Header,
   ListContainer,
   Product,
   Image,
@@ -33,7 +30,6 @@ import {
 
 export default function Cart() {
   const { setCartItems } = useContext(CartContext);
-  // const [showSearchBox, setShowSearchBox] = useState(false);
   const navigate = useNavigate();
   const cartItems = JSON.parse(localStorage.getItem("Cart"));
   let itemsPrice;
@@ -46,23 +42,7 @@ export default function Cart() {
 
   return (
     <Wrapper>
-      {/* <Header showSearchBox={showSearchBox} setShowSearchBox={setShowSearchBox}>
-        Carrinho
-      </Header> */}
-
-      <Header>
-        <div>
-          <BsArrowLeftCircle
-            size="30px"
-            color="#F1C40F"
-            onClick={() => {
-              navigate("/home");
-            }}
-          />
-        </div>
-        Carrinho
-      </Header>
-
+      <Header>Carrinho</Header>
       {JSON.parse(localStorage.getItem("Cart")) === null ||
       cartItems.length === 0 ? (
         <>
@@ -149,7 +129,7 @@ export default function Cart() {
             <FooterButton
               onClick={() => {
                 if (JSON.parse(localStorage.getItem("UserToken")) === null) {
-                  navigate("/login");
+                  navigate("/profile");
                 } else {
                   navigate("/checkout");
                 }
