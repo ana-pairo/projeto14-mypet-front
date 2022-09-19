@@ -38,7 +38,11 @@ export default function Menu() {
         <Tittle onClick={() => navigate("/home")}>MyPets</Tittle>
 
         <User>
-          <img src={user} alt="userImage" onClick={() => navigate("/login")} />
+          <img
+            src={user}
+            alt="userImage"
+            onClick={() => navigate("/profile")}
+          />
         </User>
       </MenuContainer>
 

@@ -11,6 +11,7 @@ import ProductPage from "./Products/ProductPage";
 import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
 import TypeSearch from "./Search/TypeSearch";
+import Profile from "./Profile/Profile";
 
 export default function App() {
   const [cartItems, setCartItems] = useState(
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/carrinho" element={<Cart />} />
             <Route path="/checkout" element={<div>checkou</div>} />
             <Route path="/admin/newproduct" element={<NewProduct />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </CartContext.Provider>
