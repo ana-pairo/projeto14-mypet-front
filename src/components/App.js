@@ -5,6 +5,7 @@ import Footer from "../common/Footer/Footer";
 import GlobalStyle from "../common/GlobalStyles";
 import Cart from "./Cart/Cart";
 import Login from "./Login/Login";
+import ProductDescription from "./Products/ProductDescription";
 import Register from "./Register/Register";
 import Search from "./Search/Search";
 import ProductDescription from "./Products/ProductDescription";
@@ -12,18 +13,11 @@ import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
 
 export default function App() {
-
-  const [search, setSearch] = useState()
-
   return (
     <>
       <GlobalStyle />
       <BrowserRouter>
-      
-      <Footer />
-
         <Routes>
-
           <Route path="/" element={<div>HELLO WORD</div>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Register />} />
