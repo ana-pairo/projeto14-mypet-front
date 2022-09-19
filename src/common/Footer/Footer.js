@@ -49,6 +49,7 @@ const Wrapper = styled.div`
   box-shadow: 0 30px 20px 25px #333;
   align-items: center;
   justify-content: space-around;
+  background-color: #ffffff;
 
   img {
     position: absolute;
