@@ -15,6 +15,7 @@ export default function Checkout (){
     function handleForm(e){
         setForm({...form, [e.target.name]: e.target.value})
     }
+    
     return(
     <Container>
         <MenuCheckoutContainer>
