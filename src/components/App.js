@@ -12,6 +12,8 @@ import Home from "./home/Home";
 import NewProduct from "./NewProduct/NewProduct";
 import TypeSearch from "./Search/TypeSearch";
 import Checkout from "./Checkout/Checkout";
+import Payment from "./Checkout/Payment";
+import CompletedPurchase from "./Checkout/ CompletedPurchase";
 
 export default function App() {
 
@@ -29,6 +31,8 @@ export default function App() {
           <Route path="/home" element={<Home/>} />
           <Route path="/carrinho" element={<Cart />} />
           <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/checkout/payment" element={<Payment/>} />
+          <Route path="/thankyou" element={<CompletedPurchase/>} />
           <Route path="/admin/newproduct" element={<NewProduct/>} />
         </Routes>
       </BrowserRouter>
