@@ -23,4 +23,13 @@ function searchProductsByName(searchData){
   }
 }
 
-export { openClientSession, createClient, searchProductsByName };
+function newProductAdd(body){
+  try {
+      const res = axios.post(`http://localhost:5000/admin/newproduct`, body)
+      return res
+  } catch (error) {
+      return false
+  }
+}
+
+export { openClientSession, createClient, searchProductsByName, newProductAdd };

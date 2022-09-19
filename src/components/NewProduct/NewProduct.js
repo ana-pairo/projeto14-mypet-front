@@ -2,6 +2,7 @@ import styled from "styled-components"
 import FormsStyle from "../../common/FormsStyle/FormsStyle"
 import FormsButton from "../../common/Buttons/FormsButton";
 import { useState } from "react";
+import { newProductAdd } from "../../services/MyPet_API";
 
 export default function NewProduct(){
 
@@ -11,7 +12,7 @@ export default function NewProduct(){
         description:"",
         price:"",
         imageURL:"",
-        useRecommendation:"",
+        type:"",
         sellsNumber:"",
         rate:""
         
@@ -23,8 +24,35 @@ export default function NewProduct(){
             [e.target.name]: e.target.value
         })
     }
-    function sendForm(){
-        console.log(form)
+
+    async function sendForm(){
+
+
+        const body = {
+            ...form,
+            price: Number((form.price.replace(",",".")) * 100),
+            sellsNumber:Number(form.sellsNumber) ,
+            rate: Number((form.rate.replace(",",".")) * 10),
+        }
+
+        const res = await newProductAdd(body)
+        
+        if (!res) {
+            console.log(res)
+        } else {
+            console.log(body)
+            console.log(res)
+            
+            setForm({
+                name:"",
+                description:"",
+                price:"",
+                imageURL:"",
+                type:"",
+                sellsNumber:"",
+                rate:""
+            })
+        }
     }
 
     return(
@@ -41,7 +69,7 @@ export default function NewProduct(){
 
                 <input placeholder="Link da Imagem" name="imageURL" value={form.imageURL} onChange={handleForm} required></input>
 
-                <input placeholder="Recomendação de uso" name="useRecommendation" value={form.useRecommendation} onChange={handleForm} required></input>
+                <input placeholder="Recomendação de uso" name="type" value={form.type} onChange={handleForm} required></input>
 
                 <input placeholder="Numero de Vendas" name="sellsNumber" value={form.sellsNumber} onChange={handleForm} required></input>
 
