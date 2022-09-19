@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://project-mypet-backend.herokuapp.com";
 
 function openClientSession(body) {
   const promise = axios.post(`${BASE_URL}/signIn`, body);
@@ -16,7 +16,7 @@ function createClient(body) {
 
 function searchProductsByName(searchData) {
   try {
-    const res = axios.get(`http://localhost:5000/search/${searchData}`);
+    const res = axios.get(`${BASE_URL}/search/${searchData}`);
     return res;
   } catch (error) {
     return false;
@@ -24,7 +24,7 @@ function searchProductsByName(searchData) {
 }
 function searchProductsByType(searchData) {
   try {
-    const res = axios.get(`http://localhost:5000/type/${searchData}`);
+    const res = axios.get(`${BASE_URL}/type/${searchData}`);
     return res;
   } catch (error) {
     return false;
@@ -32,7 +32,7 @@ function searchProductsByType(searchData) {
 }
 function searchAll() {
   try {
-    const res = axios.get(`http://localhost:5000/search`);
+    const res = axios.get(`${BASE_URL}/search`);
     return res;
   } catch (error) {
     return false;
@@ -40,21 +40,20 @@ function searchAll() {
 }
 function newProductAdd(body) {
   try {
-    const res = axios.post(`http://localhost:5000/admin/newproduct`, body);
+    const res = axios.post(`${BASE_URL}/admin/newproduct`, body);
     return res;
   } catch (error) {
     return false;
   }
 }
-function sendClientDataForm(body){
+function sendClientDataForm(body) {
   try {
-    const res = axios.post(`http://localhost:5000/checkout`, body)
-    return res
+    const res = axios.post(`${BASE_URL}/checkout`, body);
+    return res;
   } catch (error) {
-    return false
+    return false;
   }
 }
-
 
 async function getClientData(token) {
   const config = {
@@ -91,4 +90,3 @@ export {
   getClientData,
   deleteSession,
 };
-
