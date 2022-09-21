@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://project-mypet-backend.herokuapp.com";
+const BASE_URL = "https://mypet-data.herokuapp.com";
 
 function openClientSession(body) {
   const promise = axios.post(`${BASE_URL}/signIn`, body);
